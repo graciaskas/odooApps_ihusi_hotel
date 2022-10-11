@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--  Main action_view   -->
+    <record id="action_pos_waiters" model="ir.actions.act_window">
+        <field name="name">Waiters</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.employee</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="view_mode">kanban,tree,form</field>
+         <field name="domain">[("is_waiter","=","True")]</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a PoS waiter.
+          </p><p>
+          </p>
+        </field>
+    </record>
+
+    <menuitem 
+        id="menu_pos_waiter_root" 
+        name="Waiters" 
+        parent="point_of_sale.menu_point_root" 
+        sequence="10"
+    />
+
+    <menuitem 
+        id="menu_pos_waiter" 
+        name="Pos waiters" 
+        parent="menu_pos_waiter_root" 
+        sequence="15"
+        action="action_pos_waiters"
+    />
+
+</odoo>

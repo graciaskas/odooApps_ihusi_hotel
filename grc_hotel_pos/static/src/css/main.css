@@ -1,0 +1,34 @@
+/* --- Fonts --- */
+@font-face{
+    font-family: 'Fake Receipt';
+    src: url(../fonts//Fakereceipt.ttf);
+}
+
+
+
+.pos-receipt table  {
+  font-size: 14px !important;
+  padding: 2px   
+}
+#tableolines {
+    width: 100%;
+    font-size: 13px !important;
+    border-collapse: collapse;
+}
+
+#tableolines thead tr {
+   background-color: #dfdfdf;
+   padding: 2px 0 !important;
+}
+
+#tableolines thead th {
+    font-size: 13px !important;
+}
+
+#tableolines tbody tr {
+    padding: 1px 0 !important;
+}
+#tableolines tbody td {
+    font-size: 12px !important;
+    padding: 0 !important;
+}

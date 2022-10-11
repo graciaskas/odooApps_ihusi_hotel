@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grc_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20220717\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-22 07:39+0000\n"
+"PO-Revision-Date: 2022-08-22 07:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grc_sale
+#: model_terms:ir.ui.view,arch_db:grc_sale.saleorder_report_template
+msgid "<span style=\"float:right;\">Client's signature.</span>"
+msgstr "<span style=\"float:right;\">Signature du Client.</span>"
+
+#. module: grc_sale
+#: model_terms:ir.ui.view,arch_db:grc_sale.saleorder_report_template
+msgid ""
+"<span style=\"text-align:right;\">Seal and signature of the "
+"receiption.</span>"
+msgstr "Signature de la réception"
+
+#. module: grc_sale
+#: model_terms:ir.ui.view,arch_db:grc_sale.saleorder_report_template
+msgid "<span>Pro-Forma Invoice # </span>"
+msgstr "<span>Facture Pro-Forma  # </span>"
+
+#. module: grc_sale
+#: model_terms:ir.ui.view,arch_db:grc_sale.saleorder_report_template
+msgid "Invoice #"
+msgstr "Facture #"
+
+#. module: grc_sale
+#: model:ir.actions.report,name:grc_sale.report_sale_order
+msgid "Invoice with no service"
+msgstr "Facture sans consomations"
+
+#. module: grc_sale
+#: model_terms:ir.ui.view,arch_db:grc_sale.saleorder_report_template
+msgid "Pro-Forma #"
+msgstr ""

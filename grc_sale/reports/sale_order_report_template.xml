@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="saleorder_report_template" name="template_saleorder_inherit" inherit_id="sale.report_saleorder_document">
+        
+        <xpath expr="//t[@t-set='address']" position="replace">
+            <t t-set="address">
+                <strong>Client:</strong>
+                <div t-field="doc.partner_id"
+                    t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+            </t>
+        </xpath>
+
+        <!-- <xpath expr="//t[@t-set='information_block']" position="replace">
+            
+            <t t-set="information_block">
+                <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                    <strong>Shipping Address:</strong>
+                    <div t-field="doc.partner_shipping_id"
+                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                </t>
+            </t>
+        
+        </xpath> -->
+        
+        <xpath expr="//div[@id='informations']" position="replace">
+            <div class="row mt32 mb32" id="informations">
+                <div t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">
+                    <strong>Your Reference:</strong>
+                    <p class="m-0" t-field="doc.client_order_ref"/>
+                </div>
+                <div t-if="doc.date_order and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">
+                    <strong>CheckOut Date:</strong>
+                    <p class="m-0" t-field="doc.date_order"/>
+                </div>
+                <div t-if="doc.date_order and doc.state in ['draft','sent']" class="col-auto mw-100 mb-2">
+                    <strong>Checkin Date:</strong>
+                    <p class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}'/>
+                </div>
+                <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2" name="expiration_date">
+                    <strong>Expiration:</strong>
+                    <p class="m-0" t-field="doc.validity_date"/>
+                </div>
+                <div t-if="doc.user_id.name" class="col-auto mw-100 mb-2">
+                    <strong>Réceptioniste:</strong>
+                    <p class="m-0" t-field="doc.user_id"/>
+                </div>
+            </div>
+        </xpath>
+        
+        <xpath expr="//div[@name='signature']" position="replace">
+            <table class="table table-condesed" style="border:none !important;">
+                <tr>
+                    <td>
+                        <span style="text-align:right;">Seal and signature of the receiption.</span>
+                    </td>
+                    <td style="border-left:none !important;background-color:transparent;">
+                        <span style="float:right;">Client's signature.</span>
+                    </td>
+                </tr>
+            </table>
+        </xpath>
+
+        <xpath expr="//h2[@class='mt16']" position="replace">
+            <h2 class="mt16">
+                <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                    <span t-if="doc.state not in ['draft','sent']">Invoice # </span>
+                    <span t-if="doc.state in ['draft','sent']">Pro-Forma # </span>
+                </t>
+                <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                    <span>Pro-Forma Invoice # </span>
+                </t>
+                <span t-field="doc.name"/>
+            </h2>
+        </xpath>
+    </template>
+
+
+    <template id="report_saleorder">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="grc_sale.saleorder_report_template" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

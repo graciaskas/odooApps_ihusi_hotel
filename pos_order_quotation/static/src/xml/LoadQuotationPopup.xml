@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <t t-name="LoadQuotationPopUp" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup">
+                <header class="title">
+                    <t t-esc="props.title"/>
+                </header>
+                <div style="padding: 2%;height: 64%;background-color: #e4dfdf">
+                    <table width="80%" style="margin-left: 10%;margin-right:10%;margin-top: 2%;">
+                        <tr>
+                            <td>
+                                <b>Enter Quote ID:</b>
+                            </td>
+                            <td>
+                                <input id="load_quotation_id" style="relative" placeholder="quotation ID"
+                                       class="detail" t-model="props.value" t-ref="input"/>
+                                <div class="quotations_suggestions" style="display: none;" id="quotation_suggestion_id"
+                                     t-ref="drop-down">
+                                    <ul style="display: block;">
+
+                                        <t t-foreach="state.quotations" t-as="quotation" t-key="quotation.ref">
+                                            <li>
+                                                <span class="suggest-name" t-att-title="quotation.notes"
+                                                      t-on-click="trigger('select-quote', { selectedQuoteId: quotation.id, selectedQuote: quotation})">
+                                                    <t t-esc="quotation.ref"/>
+                                                </span>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div
+                            style="display:none; background-color: #875a7b; color: #ffffff; text-align: left; padding: 5%; margin-top: 5%; "
+                            class="quotation_details" t-ref="current_quotation">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div style="font-size:16px;margin-left:11px; width:170px;height:20px ">Customer :
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size:16px;padding-left:10px" class="quotation_customer_name">
+                                        <t
+                                                t-esc="widget.customer ? widget.customer : 'Not Selected'"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-size:16px;margin-left:11px; width:170px;height:20px">Date :</div>
+                                </td>
+                                <td>
+                                    <div style="font-size:16px;padding-left:10px" class="quotation_order_date">
+                                        <t
+                                                t-esc="widget.quotation_date"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-size:16px;margin-left:11px; width:170px;height:20px">Total Amount
+                                        :
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size:16px;padding-left:10px" class="quotation_amount_total">
+                                        <t
+                                                t-esc="widget.amount_total "/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-size:16px;margin-left:11px; width:170px;height:20px">Status :</div>
+                                </td>
+                                <td>
+                                    <div style="font-size:16px;padding-left:10px"
+                                         class="quotation_quotation_status">
+                                        <t
+                                                t-esc="widget.status ? widget.status : ''"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-size:16px;margin-left:11px; width:170px;height:20px">Notes :</div>
+                                </td>
+                                <td>
+                                    <div style="font-size:16px;padding-left:10px"
+                                         class="quotation_quotation_status">
+                                        <t
+                                                t-esc="widget.notes ? widget.notes : ''"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="margin-top:25%;height:50%">
+                        <span id="quotation_id_error"
+                              style="width:100%;color: rgb(159, 87, 0); font-size: initial; height: 20%; text-align:center;padding-top: 1.3%; background-color: rgb(254, 239, 179);display:none;"
+                              class="fa fa-warning"/>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div>
+                        <div class="button cancel" t-on-click="cancel">
+                            <t t-esc="props.cancelText"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button confirm" t-on-click="confirm">
+                            <t t-esc="props.confirmText"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <t t-name="QuotationPopUpAlert" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup">
+                <header class="title" style="background-color: #dbd5105e;">
+                    <t t-esc="props.title"/>
+                </header>
+                <div style="padding: 2%;height: 64%; background-color: #dbd5105e; ">
+                    <t t-esc="props.body"/>
+                    <div style="margin-top:25%;height:80%">
+                    </div>
+                </div>
+                <div class="footer" style="background-color: #dbd5105e;">
+                    <div>
+                        <div class="button cancel" style="background-color: #ffffff;" t-on-click="cancel">
+                            Ok
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</odoo>

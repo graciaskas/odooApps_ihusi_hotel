@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Load quotation button -->
+    <t t-name="LoadQuotationButton">
+        <div class="control-button js_load_quotation">
+            <span class="fa fa-book"></span>
+            <span>Load Quotation</span>
+        </div>
+    </t>
+
+    <!-- Create quotation button -->
+    <t t-name="CreateQuotationButton">
+        <div class="control-button js_save_quotation">
+            <span> </span>
+            <span>Create Quotation</span>
+        </div>
+    </t>
+
+    <!-- Order Receipt inherit -->
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('after-footer')]" position="inside">
+            <t t-if="receipt.seller">
+                <br/>
+                <div class="quotation">
+                    <div>
+                        Seller
+                        <span class="pos-receipt-right-align"><t t-esc="receipt.seller"/></span>
+                    </div>
+                </div>
+            </t>
+            <t t-if="receipt.quotation">
+                <br/>
+                <div class="related-quotation">
+                    <div>
+                        Customer
+                        <span class="pos-receipt-right-align"><t t-esc="receipt.quotation.customer"/></span>
+                    </div>
+                    <div>
+                        Related Quotation
+                        <span class="pos-receipt-right-align"><t t-esc="receipt.quotation.name"/></span>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </t>
+    
+</templates>

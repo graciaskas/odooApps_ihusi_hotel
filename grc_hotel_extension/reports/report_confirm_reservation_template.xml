@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--Template for Hotel Reservation -->
+    <template id="report_confirm_reservations">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout" >
+                <div class="page" >
+                    <div class="mt32 mb32">
+                        <h4>
+                            <u>Confirmed reservation room list</u>
+                        </h4>
+                        <strong>Date : <t t-esc="now" /></strong>
+                    </div>
+                    <div class="mt32 mb32">
+                        <h5>Total type room (<t t-esc="len(get_rooms)"/>)</h5>
+                    </div>
+                    <table class="table table-condensed table-sm">
+                       <thead style="background-color:#ddd">
+                            <tr>
+                                <th><strong>#No</strong></th>
+                                <th><strong>Customer</strong></th>
+                                <th><strong>CheckIn</strong></th>
+                                <th><strong>CheckOut</strong></th>
+                                <th><strong>Service</strong></th>
+                                <th groups="account.group_account_manager"><strong>U.P</strong></th>
+                                <th groups="account.group_account_manager"><strong>Price</strong></th>
+                                <th groups="account.group_account_manager"><strong>Disc.</strong></th>
+                                <th><strong>Days</strong></th>
+                                <th groups="account.group_account_manager"><strong>Total</strong></th>
+                            </tr>
+                       </thead>
+                       <tbody>
+                            <tr t-foreach="get_rooms" t-as="doc">
+                                <td><span t-esc="doc.get('reservation_no')" /></td>
+                                <td><span t-esc="doc.get('partner_id')"/></td>
+                                <td><span t-esc="doc.get('checkin')"/></td>
+                                <td><span t-esc="doc.get('checkout')"/></td>
+                                <td><span t-esc="doc.get('product_id')" /> </td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('list_price')" /></td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('room_price')" /></td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('discount')" /></td>
+                                <td><span t-esc="doc.get('quantity')" /></td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('total')" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div class="mt32 mb32">
+                        <h5>Total others type (<t t-esc="len(get_others)"/>)</h5>
+                    </div>
+                    <table class="table table-condensed table-sm">
+                        <thead style="background-color:#ddd">
+                            <tr>
+                                <th><strong>#No</strong></th>
+                                <th><strong>Customer</strong></th>
+                                <th><strong>CheckIn</strong></th>
+                                <th><strong>CheckOut</strong></th>
+                                <th><strong>Service</strong></th>
+                                <th groups="account.group_account_manager"><strong>U.P</strong></th>
+                                <th groups="account.group_account_manager"><strong>Price</strong></th>
+                                <th groups="account.group_account_manager"><strong>Disc.</strong></th>
+                                <th><strong>Days</strong></th>
+                                <th groups="account.group_account_manager"><strong>Total</strong></th>
+                            </tr>
+                       </thead>
+                       <tbody>
+                            <tr t-foreach="get_others" t-as="doc">
+                                <td><span t-esc="doc.get('reservation_no')" /></td>
+                                <td><span t-esc="doc.get('partner_id')"/></td>
+                                <td><span t-esc="doc.get('checkin')"/></td>
+                                <td><span t-esc="doc.get('checkout')"/></td>
+                                <td><span t-esc="doc.get('product_id')" /> </td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('list_price')" /></td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('room_price')" /></td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('discount')" /></td>
+                                <td><span t-esc="doc.get('quantity')" /></td>
+                                <td groups="account.group_account_manager"><span t-esc="doc.get('total')" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+

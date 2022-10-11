@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="bulk_invoice_report" model="ir.actions.report">
+        <field name="name">Bulk invoice report</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">grc_bulk_invoice.bulk_invoice_template</field>
+    </record>
+
+    <record id="bulk_invoice_report2" model="ir.actions.report">
+        <field name="name">Bulk invoice report</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">grc_bulk_invoice.bulk_invoice_template2</field>
+    </record>
+
+</odoo>

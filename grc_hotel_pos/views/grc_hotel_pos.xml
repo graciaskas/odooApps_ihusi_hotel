@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+   <data>
+       <template id="grc_hotel_pos_template"  inherit_id="point_of_sale.assets">
+           <xpath expr="." position="inside">
+               <!-- css file-->
+               <link rel="stylesheet" type="text/css" href="/grc_hotel_pos/static/src/css/main.css"/>
+               <!-- javascript file -->
+               <script type="text/javascript" src="/grc_hotel_pos/static/src/js/main.js"/>
+           </xpath>
+       </template>
+   </data>
+   
+</odoo>

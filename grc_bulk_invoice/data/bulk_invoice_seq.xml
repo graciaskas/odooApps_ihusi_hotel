@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="seq_bulk_invoice" model="ir.sequence">
+        <field name="name">Bulk Invoice</field>
+        <field name="code">bulk.invoice</field>
+        <field name="prefix">BINV/</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

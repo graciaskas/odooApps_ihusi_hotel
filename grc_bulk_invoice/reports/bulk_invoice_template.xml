@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="bulk_invoice_template">
+        <t t-call="web.html_container">
+          
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="mt32 mb32">
+                            <h4>Resumé des factures.</h4>
+                            <div class="row">
+                                <div class="col-auto mw-100 mb-2">
+                                    <strong>Partenaire: <span t-esc="partner"/></strong>
+                                </div>
+                                <div class="col-auto mw-100 mb-2">
+                                    <strong>Contact: <span t-esc="contact"/></strong>
+                                </div>
+                                <div class="col-auto mw-100 mb-2">
+                                    <strong>Date: <span t-esc="date"/></strong>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                       <table class="table table-sm" style="background-color:white !important;margin:0;">
+                            <!-- Invoice -->
+                            <t t-set="total" t-value="0"/>
+                            <t t-foreach="records" t-as="record">
+                                <t t-set="total" t-value="(record['amount_total'] + total)"/>
+                                <tr style="background-color:white !important;margin:0;">
+
+                                    <tr class="bg-secondary t-white">
+                                        <th><span t-esc="record['name']"/></th>
+                                        <th class="text-right">
+                                            Total all taxes included:
+                                            <span t-esc="record['amount_total']"/>
+                                            <span t-esc="record['currency']"/>
+                                        </th>
+                                    </tr>
+
+                                    
+                                    <tr style="background-color:white !important;margin:0;">
+                                        <td colspan="2">Details
+                                            <table class="table table-sm" style="border:none; background-color:white !important;margin:0;">
+                                                <tr style="border-bottom:1px solid #000;">
+                                                    <th>Description</th>
+                                                    <th>Quantity</th>
+                                                    <th >Price</th>
+                                                    <th class="text-right">Total</th>
+                                                </tr>
+                                                <!-- Invoice lines-->
+                                                <t t-foreach="record['lines']" t-as="line">
+                                                    <tr style="border-bottom:1px solid #000;">
+                                                        <td><span t-esc="line['product']"/></td>
+                                                        <td>
+                                                            <span t-esc="line['quantity']"/>
+                                                            <span t-esc="line['product_uom']"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="line['price_unit']"/>
+                                                            <span t-esc="record['currency']"/>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <span t-esc="line['total']"/>
+                                                            <span t-esc="record['currency']"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tr>
+                                
+                            </t>
+                            <tr style="margin-top:5px;">        
+                                <td>Totale des factures: <span t-esc="total"/></td>
+                            </tr>
+                        </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

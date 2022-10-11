@@ -1,0 +1,151 @@
+<odoo>
+  <data>
+
+       <template id="point_of_sale.report_saledetails">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <div class="text-center">
+
+
+                    <t t-esc="company.name" /><br></br>
+
+                     <t t-esc="company_name.street" /><br></br>
+                            <t t-esc="company_name.phone" />
+
+
+                            <h2>Sales Details</h2>
+                            <strong><t t-esc="date_start" t-options="{'widget': 'datetime'}"/> - <t t-esc="date_stop" t-options="{'widget': 'datetime'}"/></strong>
+                        </div>
+                        <h4>Products</h4>
+                        <table  class="table table-sm">
+                            <thead><tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th  class="text-right">Quantity</th>
+                                <th  class="text-right">Price Unit</th>
+                                <th  class="text-right">Total</th>
+                            </tr></thead>
+                            <tbody>
+                                 <t t-set="product_category" t-value="[]"/>
+	        <t t-foreach="docs" t-as="l">
+		    <t t-set="product_category" t-value="product_category+[l['product_id']]"/>
+
+	        </t>    <t t-set="test_variable" t-value="0"/>
+                                <t t-set="test_variable_tot" t-value="0.0"/>
+                                <t t-foreach="set(product_category)" t-as="category">
+
+                                    <t t-set="subtotal" t-value="0.0"/>
+                                    <t t-set="subqty" t-value="0.0"/>
+
+                                <tr t-foreach='products' t-as='line'>
+                                      <t t-if="category==line['pos_categ_id']">
+
+                                    <t t-set="internal_reference" t-value="line['code'] and '[%s] ' % line['code'] or ''" />
+                                    <td><t t-esc="internal_reference" /><t t-esc="line['product_name']" /></td>
+                                    <td><t t-esc="line['categ_id']" /></td>
+
+                                    <td  class="text-right">
+                                        <t t-esc="line['quantity']"  t-options='{"widget": "float", "precision": 1}' />
+                                        <t t-if='line["uom"] != "Unit(s)"'>
+                                            <t t-esc='line["uom"]' />
+                                        </t>
+                                    </td>
+                                    <td  class="text-right">
+                                        <t t-esc='line["price_unit"]' />
+                                        <t t-if='line["discount"] != 0'>
+                                            Disc: <t t-esc='line["discount"]' />%
+                                        </t>
+                                    </td>
+                                    <td  class="text-right">
+                                        <t t-set="a" t-value="line['quantity']"/>
+                                        <t t-set="b" t-value='line["price_unit"]'/>
+                                        <t t-set="c" t-value="b*a"/>
+                                        <t t-esc="c" t-options='{"widget": "float", "precision": 2}'/>
+
+                                        <t t-set="subtotal" t-value="subtotal+c"/>
+                                        <t t-set="subqty" t-value="subqty+a"/>
+                                             <t t-set="test_variable" t-value="test_variable+a"/>
+                                        <t t-set="test_variable_tot" t-value="test_variable_tot+c"/>
+                                    </td>
+
+                                      </t>
+                                </tr>
+                                    <tr style="font-size: 16px;"><td><bold><strong>SubTotal</strong></bold></td>
+                                            <td></td> <td style="font-size: 16px;" class="text-right">
+                                        <strong><t  t-esc="subqty" t-options='{"widget": "float", "precision": 2}'/></strong>
+                                    </td><td></td>
+                                    <td style="font-size: 16px;" class="text-right">
+                                        <strong><t t-esc="subtotal" t-options='{"widget": "float", "precision": 2}'/></strong>
+                                    </td><td></td>
+                                      </tr>
+
+                                </t>
+                                <tr>
+
+                                <tr style="font-size: 16px;background-color:#D3D3D3;"><td ><bold><strong>Grand Total</strong></bold></td>
+                                    <td></td><td style="font-size: 16px;" class="text-right">
+                                                <strong><t t-esc="test_variable" t-options='{"widget": "float", "precision": 2}'/></strong>
+                                    </td><td></td>
+                                    <td style="font-size: 16px;" class="text-right">
+
+                                         <strong><t t-esc="test_variable_tot" t-options='{"widget": "float", "precision": 2}'/></strong>
+                                    </td>
+                                </tr>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <h4>Payments</h4>
+                        <table  class="table table-sm">
+                            <thead><tr>
+                                <th>Name</th>
+                                <th>Total</th>
+                            </tr></thead>
+                            <tbody>
+                                  <t t-set="test_variable" t-value="0"/>
+                                <tr t-foreach='payments' t-as='payment'>
+                                    <td><t t-esc="payment['name']" /></td>
+                                    <td><t t-esc="payment['total']" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+                                     <td>
+                                        <t t-set="b" t-value="payment['total']"/>
+                                        <t t-set="test_variable" t-value="test_variable+b"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                             <tr style="font-size: 16px;;background-color:#D3D3D3;"> <td ><strong>Grand Total</strong></td>
+                                    <td style="font-size: 16px;">
+                                        <strong><t t-esc="test_variable" t-options='{"widget": "float", "precision": 2}'/>       </strong><td><td></td></td>
+                                    </td>
+                                </tr>
+                        </table>
+
+                        <br/>
+
+                        <h4>Taxes</h4>
+                        <table  class="table table-sm">
+                            <thead><tr>
+                                <th>Name</th>
+                                <th>Tax Amount</th>
+                                <th>Base Amount</th>
+                                <th>Gross Total</th>
+                            </tr></thead>
+                            <tbody>
+                                <tr t-foreach='taxes' t-as='tax'>
+                                    <td><t t-esc="tax['name']" /></td>
+                                    <td><t t-esc="tax['tax_amount']" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+                                    <td><t t-esc="tax['base_amount']" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+                                    <td><t t-esc='total_paid' t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+  </data>
+</odoo>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- inherit wizard hotel.folio.view-->
+    <record id="inherit_view_hotel_folio_wizard_grc_hotel" model="ir.ui.view">
+        <field name="name">folio.report.wizard.grc_hotel</field>
+        <field name="model">folio.report.wizard</field>
+        <field name="inherit_id" ref="hotel.view_hotel_folio_wizard"/>
+        <field name="arch" type="xml">
+            <button name="print_report" position="replace">
+                <button 
+                    name="print_folios" 
+                    string="Occupations sheet"
+                    icon="fa-print"
+                    type="object"  
+                    class="oe_highlight"
+                />
+            </button>        
+        </field>
+    </record>
+
+    <record id="hotel_view_activity" model="ir.ui.view">
+        <field name="name">hotel.folio.activity</field>
+        <field name="model">hotel.folio</field>
+        <field name="arch" type="xml">
+            <activity string="Hotel">
+                <templates>
+                    <div t-name="activity-box">
+                        <div>
+                            <field name="note_folio" display="full"/>
+                            <field name="room_line_ids" muted="1" display="full"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+
+    <!-- inherit  hotel.folio.tree-->
+    <record id="view_hotel_folio_tree_inherited" model="ir.ui.view">
+        <field name="name">hotel.folio.tree.inherited</field>
+        <field name="model">hotel.folio</field>
+        <field name="inherit_id" ref="hotel.view_hotel_folio_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">state == 'cancel'</attribute>
+                <attribute name="decoration-info">state == 'draft'</attribute>
+                <attribute name="decoration-muted">state == 'done'</attribute>
+                <attribute name="create">false</attribute>
+            </xpath> 
+            <field name="checkin_date" position='before'>
+                <field name="product_id"  />
+            </field>
+        </field>
+    </record>
+
+
+    <!-- inherit  hotel.folio.form-->
+    <record id="view_hotel_folio_form_inherited" model="ir.ui.view">
+        <field name="name">hotel.folio.form.inherited</field>
+        <field name="model">hotel.folio</field>
+        <field name="inherit_id" ref="hotel.view_hotel_folio_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="create">false</attribute>
+            </xpath>
+
+            <xpath expr="//form/sheet/label" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_order" type="object" class="oe_stat_button" icon="fa-pencil-square-o" string="Voir facture"></button>
+                </div>
+            </xpath>
+
+            <xpath expr="//form" position="inside">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </xpath>
+
+            <button name="action_confirm" position="replace">
+                <button name="action_confirm" states="draft" string="Check Out" class="btn-primary" type="object"/>
+            </button>
+
+            <button name="370" position="replace">
+                <button 
+                    name="370" 
+                    string="Create Invoice" 
+                    type="action" 
+                    class="btn-primary" 
+                    attrs="{'invisible': ['|',('state', 'in', ('cancel','done')), ('invoice_status', 'in', 'invoiced')]}"
+                />
+            </button>
+
+            <button name="action_cancel" position="replace">
+                <button 
+                    name="action_cancel" 
+                    string="Cancel Folio" 
+                    states="draft" 
+                    icon="fa-close" 
+                    type="object" 
+                    class="oe_highlight"
+                    attrs="{'invisible': ['|',('state', 'in', ('sale','done')), ('invoice_status', 'in', 'invoiced')]}"
+                    groups="base.group_admin"/>
+            </button>
+
+            <field name="warehouse_id" position="after">
+                <field name="note_folio"/>
+            </field>                    
+        </field>
+    </record>
+
+    <!-- inherit  view hotel.folio.search-->
+    <record id="view_hotel_folio_search_inherited" model="ir.ui.view">
+        <field name="name">hotel.folio.search.inherited</field>
+        <field name="model">hotel.folio</field>
+        <field name="inherit_id" ref="hotel.view_hotel_folio_search" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position='before'>
+                <field name="product_id"  />
+            </field>
+            <filter name="partner_id" position='before'>
+                <filter name="state" string="Status" context="{'group_by':'state'}"/>
+                <filter name="product_id" string="Room" context="{'group_by':'product_id'}"/>
+            </filter>
+            <filter name="checkout_date" position="replace">
+                <filter 
+                    name="state" 
+                    string="Current occupations" 
+                    domain="[('state','=','draft')]"/>
+            </filter>
+            <filter name="state" position="after">
+                <filter 
+                    name="state" 
+                    string="Checkouts" 
+                    domain="[('state','=','done')]"/>
+            </filter>
+        </field>
+    </record>
+
+   
+
+</odoo>

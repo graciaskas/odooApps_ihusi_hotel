@@ -1,0 +1,341 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grc_hotel_extension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20220717\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-05 09:41+0000\n"
+"PO-Revision-Date: 2022-08-05 09:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>#BookNo</strong>"
+msgstr "<strong>#ResNo</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>#No</strong>"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+msgid "<strong>Check-In Date</strong>"
+msgstr "<strong>Date d'entrée</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>CheckIN</strong>"
+msgstr "<strong>Entrée</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+msgid "<strong>CheckIn</strong>"
+msgstr "<strong>Entrée</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>CheckOut</strong>"
+msgstr "<strong>Sortie</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>Customer</strong>"
+msgstr "<strong>Client</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>Days</strong>"
+msgstr "<strong>Nuité</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+msgid "<strong>Disc.</strong>"
+msgstr "<strong>Réd.</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>Disc</strong>"
+msgstr "<strong>Réd.</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+msgid "<strong>From:</strong>"
+msgstr "<strong>Du:</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+msgid "<strong>Guest Name</strong>"
+msgstr "<strong>Client</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>Price</strong>"
+msgstr "<strong>Prix</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+msgid "<strong>Room No</strong>"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+msgid "<strong>Room Type</strong>"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>Service</strong>"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+msgid "<strong>To:</strong>"
+msgstr "<strong>A:</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>Total</strong>"
+msgstr "<strong>Totale</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<strong>U.P</strong>"
+msgstr "<strong>P.U</strong>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_checkin_reservations
+msgid "<u>CheckIn reservation list</u>"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+msgid "<u>Confirmed reservation room list</u>"
+msgstr "<u>Liste de réservations confirmées</u>"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "<u>Occupations sheet</u>"
+msgstr "<u>Fiche d'occupations</u>"
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_folio_report_wizard
+msgid "Allow print folio report by date"
+msgstr "Autoriser l'impression du rapport de folio par date"
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_hotel_reservation_wizard
+msgid "Allow to generate a reservation"
+msgstr "Permettre de générer une réservation"
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_report_grc_hotel_extension_report_checkin_reservations
+#: model:ir.model,name:grc_hotel_extension.model_report_grc_hotel_extension_report_confirm_reservations
+msgid "Auxiliar to get the check in report"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.hotel_reservation_wizard_form_view_grc_hotel
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.view_hotel_folio_form_inherited
+msgid "Cancel Folio"
+msgstr "Annuler folio"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_hotel_folio_line__checkin_date
+msgid "Check In"
+msgstr "Entrée"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.view_hotel_folio_form_inherited
+msgid "Check Out"
+msgstr "Sortie"
+
+#. module: grc_hotel_extension
+#: model:ir.actions.report,name:grc_hotel_extension.report_checkin_reservation
+#: model:ir.actions.report,name:grc_hotel_extension.report_confirm_reservation
+msgid "Checkin List"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.view_hotel_folio_search_inherited
+msgid "Checkouts"
+msgstr "Sorties"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_hotel_reservation__commission_agent
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_quick_room_reservation__commission_agent
+#: model:ir.model.fields,help:grc_hotel_extension.field_hotel_reservation__commission_agent
+#: model:ir.model.fields,help:grc_hotel_extension.field_quick_room_reservation__commission_agent
+msgid "Commission for the agent"
+msgstr "Commission pour l'agent"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.hotel_reservation_wizard_form_view_grc_hotel
+msgid "Confirmed List"
+msgstr "Liste des confirmées"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.view_hotel_folio_form_inherited
+msgid "Create Invoice"
+msgstr "Créer une facture"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.view_hotel_folio_search_inherited
+msgid "Current occupations"
+msgstr "Occupations actuelles"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "Date :"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_checkin_reservations__display_name
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_confirm_reservations__display_name
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_folio__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields.selection,name:grc_hotel_extension.selection__hotel_reservation__reservation_type__floor
+#: model:ir.model.fields.selection,name:grc_hotel_extension.selection__quick_room_reservation__reservation_type__floor
+msgid "Floor"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_hotel_folio_line
+msgid "Hotel Folio Room Line"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_checkin_reservations__id
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_confirm_reservations__id
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_folio__id
+msgid "ID"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_checkin_reservations____last_update
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_confirm_reservations____last_update
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_report_grc_hotel_extension_report_folio____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "NET TOTAL:"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model:ir.actions.report,name:grc_hotel_extension.report_folios
+msgid "Occupations"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.inherit_view_hotel_folio_wizard_grc_hotel
+msgid "Occupations sheet"
+msgstr "Fiche d'occupations"
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_quick_room_reservation
+msgid "Quick Room Reservation"
+msgstr "Réservation de chambre rapide"
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_hotel_reservation
+msgid "Reservation"
+msgstr "Réservation"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_hotel_reservation__reservation_type
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_quick_room_reservation__reservation_type
+msgid "Reservation type"
+msgstr "Type de réservation"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_hotel_folio__product_id
+#: model:ir.model.fields.selection,name:grc_hotel_extension.selection__hotel_reservation__reservation_type__room
+#: model:ir.model.fields.selection,name:grc_hotel_extension.selection__quick_room_reservation__reservation_type__room
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.view_hotel_folio_search_inherited
+msgid "Room"
+msgstr "Chambre"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_hotel_reservation__room_price
+#: model:ir.model.fields,field_description:grc_hotel_extension.field_quick_room_reservation__room_price
+msgid "Room price"
+msgstr "Prix de Chambre"
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields.selection,name:grc_hotel_extension.selection__hotel_reservation__reservation_type__space
+#: model:ir.model.fields.selection,name:grc_hotel_extension.selection__quick_room_reservation__reservation_type__space
+msgid "Space"
+msgstr "Espace"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.view_hotel_folio_search_inherited
+msgid "Status"
+msgstr "Statut"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,help:grc_hotel_extension.field_hotel_reservation__room_price
+#: model:ir.model.fields,help:grc_hotel_extension.field_quick_room_reservation__room_price
+msgid "The price 0f the room"
+msgstr "Le prix de la chambre"
+
+#. module: grc_hotel_extension
+#: model:ir.model.fields,help:grc_hotel_extension.field_hotel_reservation__reservation_type
+#: model:ir.model.fields,help:grc_hotel_extension.field_quick_room_reservation__reservation_type
+msgid "The type 0f the reservation"
+msgstr "Le type de réservation"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_folio
+msgid "Total count ("
+msgstr "Le compte total"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+msgid "Total others type ("
+msgstr "Total autres types"
+
+#. module: grc_hotel_extension
+#: model_terms:ir.ui.view,arch_db:grc_hotel_extension.report_confirm_reservations
+msgid "Total type room ("
+msgstr "Totale type Chambre"
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_hotel_folio
+msgid "hotel folio new"
+msgstr ""
+
+#. module: grc_hotel_extension
+#: model:ir.model,name:grc_hotel_extension.model_report_grc_hotel_extension_report_folio
+msgid "report.grc_hotel_extension.report_folio"
+msgstr ""

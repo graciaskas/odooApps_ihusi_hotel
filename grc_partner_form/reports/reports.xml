@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="grc_partner_book_report"
+            model="hotel.folio"
+            string="Bulletin d'inscription"
+            report_type="qweb-pdf"
+            name="grc_partner_form.partner_book_report_template"
+            file="grc_partner_form.partner_book_report_template"
+        />
+    </data>
+</odoo>

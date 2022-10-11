@@ -1,0 +1,160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grc_pos_waiter
+#
+# Translator:
+# Gracias Kasongo <graciaskas96@gmail.com>, 2022
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20200201\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-06 07:36+0000\n"
+"PO-Revision-Date: 2022-04-06 07:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/js/waiter.js:88
+#, python-format
+msgid "\n"
+"                    We cannot validate a payment while no order's waiter is \n"
+"                    defined.Please try to select a waiter before you validate the paiement!"
+msgstr "
+	Nous ne pouvons pas valider un paiement tant qu'aucun serveur de commande n'est défini. Veuillez essayer de sélectionner un serveur avant de valider le paiement !
+"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:52
+#, python-format
+msgid "Address"
+msgstr "Adresse"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:19
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: grc_pos_waiter
+#: model:ir.actions.act_window,help:grc_pos_waiter.action_pos_waiters
+msgid "Click to create a waiter."
+msgstr "Cliquez pour créer un serveur"
+
+#. module: grc_pos_waiter
+#: model:ir.model,name:grc_pos_waiter.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: grc_pos_waiter
+#: model:ir.model.fields,help:grc_pos_waiter.field_hr_employee_is_waiter
+msgid "Enable to mark the  employee as a waiter"
+msgstr "Activer pour marquer l'employé comme serveur"
+
+#. module: grc_pos_waiter
+#: model:ir.model.fields,field_description:grc_pos_waiter.field_hr_employee_is_waiter
+msgid "Is Waiter ?"
+msgstr "Est un serveur ?"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/js/waiter.js:87
+#, python-format
+msgid "Payment validation Error"
+msgstr "Erreur de validation de paiement"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:53
+#, python-format
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: grc_pos_waiter
+#: model:ir.ui.view,arch_db:grc_pos_waiter.hr_employee_pos_waiter
+msgid "PoS waiter"
+msgstr "Serveur PDV"
+
+#. module: grc_pos_waiter
+#: model:ir.ui.view,arch_db:grc_pos_waiter.hr_employee_pos_waiter
+msgid "Point of Sale"
+msgstr "Point de vente"
+
+#. module: grc_pos_waiter
+#: model:ir.model,name:grc_pos_waiter.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes au point de vente"
+
+#. module: grc_pos_waiter
+#: model:ir.ui.menu,name:grc_pos_waiter.menu_pos_waiter
+msgid "Pos waiters"
+msgstr "Serveurs PDV"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:23
+#, python-format
+msgid "Search Waiter"
+msgstr "Rechercher un serveur"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:7
+#, python-format
+msgid "Select Waiter"
+msgstr "Serveur"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:27
+#, python-format
+msgid "Set Waiter"
+msgstr "Définir le serveur"
+
+#. module: grc_pos_waiter
+#: model:ir.model.fields,help:grc_pos_waiter.field_pos_order_waiter_id
+msgid "The Waiter of the order"
+msgstr "Le serveur de la commande"
+
+#. module: grc_pos_waiter
+#: model:ir.model.fields,field_description:grc_pos_waiter.field_pos_order_waiter_id
+msgid "Waiter"
+msgstr "Serveur"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:51
+#, python-format
+msgid "Waiter name"
+msgstr "Nom du serveur"
+
+#. module: grc_pos_waiter
+#. openerp-web
+#: code:addons/grc_pos_waiter/static/src/xml/waiter.xml:80
+#, python-format
+msgid "Waiter:"
+msgstr "Serveur: "
+
+#. module: grc_pos_waiter
+#: model:ir.actions.act_window,name:grc_pos_waiter.action_pos_waiters
+#: model:ir.ui.menu,name:grc_pos_waiter.menu_pos_waiter_root
+msgid "Waiters"
+msgstr "Serveurs"
+
+#. module: grc_pos_waiter
+#: code:addons/grc_pos_waiter/models/hr_employee.py:15
+#, python-format
+msgid "You cannot delete a waiter"
+msgstr "Vous ne pouvez pas supprimer un serveur"
+
+#. module: grc_pos_waiter
+#: model:ir.ui.view,arch_db:grc_pos_waiter.hr_employee_pos_waiter_inherit_tree
+msgid "responsible"
+msgstr "responsable"
+

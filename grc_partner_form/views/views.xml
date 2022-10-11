@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="hotel_folio_partner" model="ir.ui.view">
+        <field name="name">hotel.folio.partner_book</field>
+        <field name="model">hotel.folio</field>
+        <field name="inherit_id" ref="hotel.view_hotel_folio_form"/>
+        <field name="arch" type="xml">
+            <notebook>
+                <!-- <xpath expr="//page[@name='hr_settings']" position="after"> -->
+                    <page name="folio_partner" string="Bulletin">
+                        <group>
+                            <group name="Informations personnelles" string="Informations personnelles">
+                                <field name="birth_date" />
+                                <field name="birth_place" />
+                                <field name="marital_state" />
+                                <field name="nationality" />
+                                <field name="job" />
+                                <field name="house_permenant" />
+                            </group>
+
+                            <group name="pieces" string="Identité">
+                               <field name="document_type" />
+                               <field name="place_of_document" />
+                               <field name="type_of_visa" />
+                               <field name="datetype_o" />
+                            </group>
+                        </group>
+
+                        <group>
+                            <group name="voyage_residence" string="Voyage et residence">
+                                <field name="residence_co" />
+                                <field name="comming_from" />
+                                <field name="destination" />
+                                <field name="residence_fo" />
+                            </group>
+                        </group>
+                    </page>
+                <!-- </xpath> -->
+            </notebook>
+        </field>
+    </record>
+</odoo>

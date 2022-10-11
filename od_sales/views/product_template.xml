@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_action_products_service" model="ir.actions.act_window">
+        <field name="name">Service products </field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,kanban,activity,form</field>
+        <field name="view_id" ref="product.product_template_tree_view"/>
+        <field name="search_view_id" ref="product.product_template_search_view"/>
+        <field name="domain">[('type','=','service')]</field>
+        <field name="context">{"search_default_filter_to_sell":1, "default_type": 'service'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smilling_face">
+                Create a new service product
+            </p>
+            <p>
+                Lorem ipsum sit amets
+            </p>
+        </field>
+    </record>
+
+    <!-- inherit form view -->
+    <record id="product_template_only_form_view_od_sales" model="ir.ui.view">
+        <field name="name">product.template.view.form.od_sales</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="default_code" position="after">
+                <field name="computer_generation" />
+                <field name="waranty_start" />
+                <field name="waranty_end" />
+            </field>
+        </field>
+    </record>
+
+    <!-- inherit tree view -->
+    <record id="product_template_tree_view_od_sales" model="ir.ui.view">
+        <field name="name">product.template.view.tree.od_sales</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="default_code" position="after">
+                <field name="computer_generation" />
+                <field name="waranty_start" />
+                <field name="waranty_end" />
+            </field>
+        </field>
+    </record>
+
+
+    
+    <!-- inherit search view -->
+    <record id="product_template_search_view_od_sales" model="ir.ui.view">
+        <field name="name">product.template.view.search.od_sales</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <filter  name="categ_id" position="after">
+                <separator />
+                <filter 
+                    string="Computer generation" 
+                    name="computer_generation" 
+                    context="{'group_by':'computer_generation'}"
+                />
+            </filter>
+        </field>
+    </record>
+
+    
+    <!-- inherit sales menu -->
+    <menuitem 
+        action="product_template_action_products_service" 
+        id="menu_product_template_action_od_sales" 
+        parent="sale.product_menu_catalog" 
+        name="Service products"
+        active="True"
+    />
+
+
+
+
+</odoo>

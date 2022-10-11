@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+   <data>
+       <template id="waiterButton"  inherit_id="point_of_sale.assets">
+           <xpath expr="." position="inside">
+               <!-- css file-->
+               <link rel="stylesheet" type="text/scss" href="/grc_pos_waiter/static/src/css/waiter.css"/>
+               <!-- javascript file -->
+               <script type="text/javascript" src="/grc_pos_waiter/static/src/js/waiter.js"/>
+           </xpath>
+       </template>
+   </data>
+   
+</odoo>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="partner_book_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+
+                            <h3 style="text-transform :uppercase !important;border-bottom: 1px solid #555;padding-bottom: 20px;" class="text-center">
+                                BULLETIN D'INSCRIPTION N°: <strong ><span t-field="doc.name"/></strong>
+                            </h3>
+
+                            <div class="row mt32 mb32">
+                                <div class="col-3">
+                                    <strong>Réceptioniste:</strong>
+                                    <p t-field="doc.user_id"/>
+                                </div>
+                                <div class="col-3">
+                                    <strong>Chambre:</strong>
+                                    <p t-field="doc.product_id"/>
+                                </div>
+                            </div>
+
+                            <div style="border: 1px solid #555;padding:7px;border-radius: 3px;">
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                <span>
+                                    <strong> Noms / Names</strong>
+                                </span> :  <span t-field="doc.partner_id" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                    <strong>Lieu de naissance /Birth place</strong>
+                                    </span> :  <span t-field="doc.birth_place" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Date de naissance /Birth date</strong>
+                                    </span> :  <span t-field="doc.birth_date" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Etat civil /Marital state</strong>
+                                    </span> : <span t-field="doc.marital_state" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Residence au congo /Residence in congo</strong>
+                                    </span> : <span t-field="doc.residence_co" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Domicile permanent /Permanent residence</strong>
+                                    </span> :  <span t-field="doc.house_permenant" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span style="margin-right: 50px;">
+                                        <strong>Nationalité /Nationality</strong>
+                                    </span> : <span t-field="doc.nationality" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong> Profession /Job</strong>
+                                    </span> : <span t-field="doc.job" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Nature de la pièce d'identité /ID Type</strong>
+                                    </span> : <span t-field="doc.document_type" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Lieu d'émission de la pièce d'identité /ID delivery place</strong>
+                                    </span> : <span t-field="doc.place_of_document" style="float: right;"/>
+                                </div>
+
+                                <!-- 
+                                    <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                        <span>
+                                            <strong>
+                                                Genre de visa /Type of visa
+                                            </strong>
+                                        </span> : <span t-field="doc.type_of_visa" style="float: right;"/>
+                                    </div> 
+                                -->
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Date et numéro de la pièce d'identité  /Date and ID of document</strong>
+                                    </span> : <span t-field="doc.datetype_o" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Accompagné de (enfant de moins de 14 ans)  /Children under 14 years old</strong>
+                                    </span> : <span style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Lieu de provenance  /Comming from</strong>
+                                    </span> :  <span t-field="doc.comming_from" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span >
+                                        <strong>Date d'arrivé  /Arrival date</strong>
+                                    </span> : <span t-field="doc.checkin_date" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Destination  /Destination</strong>
+                                    </span> : <span t-field="doc.destination" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;border-bottom: 1px solid #555;padding:8px">
+                                    <span>
+                                        <strong>Date de Départ  /Departure date</strong>
+                                    </span> : <span t-field="doc.checkout_date" style="float: right;"/>
+                                </div>
+
+                                <div style="display: flex;justify-content:space-between;padding:8px">
+                                    <span>
+                                        <strong>Residence à l'étranger  /foreign residence</strong>
+                                    </span> :  <span t-field="doc.residence_fo" style="float: right;"/>
+                                </div>
+                            </div>
+
+                            <br/>
+                            <table class="table-condensed" width="100%">
+                                <tr>
+                                    <td width="50%" class="text-left">
+                                        <!-- <strong>Pour Vendeur(se).</strong> -->
+                                    </td>
+                                    <td width="50%" class="text-right">
+                                        <strong>Signature du voyageur /traveler's signature.</strong>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>                   
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+

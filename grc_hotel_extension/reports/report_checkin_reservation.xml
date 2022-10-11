@@ -1,0 +1,18 @@
+<odoo>
+    <!--Report for hotel folio -->
+    
+    <report
+        id="report_checkin_reservation"
+        string="Checkin List"
+        model="hotel.reservation"
+        report_type="qweb-pdf"
+        file="grc_hotel_extension.report_checkin_reservations"
+        name="grc_hotel_extension.report_checkin_reservations"
+        menu="False"
+        paperformat="grc_hotel_extension.paperformat_lowmargin"
+    />
+
+    <!-- <record id="grc_hotel_extension.report_folios" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="grc_hotel_extension.paperformat_lowmargin" />
+    </record> -->
+</odoo>

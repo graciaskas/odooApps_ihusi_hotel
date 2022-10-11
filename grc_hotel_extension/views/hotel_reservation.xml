@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- inherit hotel.reservation.view.form-->
+    <record id="inherit_view_hotel_reservation_form_grc_hotel" model="ir.ui.view">
+        <field name="name">hotel.reservation.view.form.grc_hotel_extension</field>
+        <field name="model">hotel.reservation</field>
+        <field name="inherit_id" ref="hotel_reservation.view_hotel_reservation_form"/>
+        <field name="arch" type="xml">
+            <field name="adults" position="after">
+                <field name="room_price" />
+            </field>
+            <field name="children" position="after">
+                <field name="reservation_type" />
+                <field name="commission_agent" />
+                <field name="receptionist" readonly='1'/>
+            </field>
+        </field>
+    </record>
+
+    <!-- inherit hotel.reservation.view.tree-->
+    <record id="view_hotel_reservation_tree_grc_hotel" model="ir.ui.view">
+        <field name="name">hotel.reservation.view.tree.grc_hotel_extension</field>
+        <field name="model">hotel.reservation</field>
+        <field name="inherit_id" ref="hotel_reservation.view_hotel_reservation_tree"/>
+        <field name="arch" type="xml">
+            <!-- Update tree attributes -->
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">state == 'cancel'</attribute>
+                <attribute name="decoration-info">state == 'draft'</attribute>
+                <attribute name="decoration-muted">state == 'done'</attribute>
+            </xpath>
+            <field name="checkout" position="after">
+                <field name="receptionist" />
+                <field name="room_price" />
+                <field name="reservation_type" />
+            </field>           
+        </field>
+    </record>
+
+    <!--  Inherit hotel reservation reports wizard -->
+    <record id="hotel_reservation_wizard_form_view_grc_hotel" model="ir.ui.view">
+        <field name="name">hotel.reservation.view.wizard.grc_hotel_extension</field>
+        <field name="model">hotel.reservation.wizard</field>
+        <field name="inherit_id" ref="hotel_reservation.hotel_reservation_wizard_form_view"/>
+        <field name="arch" type="xml">
+            <footer position="replace">
+                <footer>
+                    <button name="report_confirm_reservation" string="Confirmed List" type="object" class="btn btn-primary"/>
+                    <!-- <button name="report_checkin_reservation" string="Checkint List" type="object" icon="fa-level-down" class="btn btn-primary"/> -->
+                    <button special="cancel" string="Cancel" icon="fa-close" class="btn btn-primary"/>
+                </footer>
+            </footer>
+        </field>
+    </record>
+
+    <!--  Inherit quick hotel reservation reports wizard -->
+    <record id="quick_room_reservation_form_view_grc_hotel" model="ir.ui.view">
+        <field name="name">quick_room_reservation_form_view.grc_hotel_extension</field>
+        <field name="model">quick.room.reservation</field>
+        <field name="inherit_id" ref="hotel_reservation.quick_room_reservation_form_view"/>
+        <field name="arch" type="xml">
+            <group colspan="4" col="4" >
+                <field name="room_price" />
+                <field name="reservation_type" />
+            </group>
+        </field>
+    </record>
+
+</odoo>

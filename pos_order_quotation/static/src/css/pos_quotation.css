@@ -1,0 +1,53 @@
+.flex-justify-content {
+    display: flex;
+}
+
+.note-save-quotation {
+    margin: 15px 9px;
+    padding: 9px;
+}
+
+.flex-justify-content textarea {
+    resize: none;
+}
+
+.quote-id-value {
+    margin: 14px;
+    color: #875a7b;
+}
+
+.quote-id {
+    margin: 15px 9px;
+}
+
+.quotations_suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.quotations_suggestions {
+    display: block;
+    position: absolute;
+    width: 38%;
+    max-height: 100px;
+    margin-left: 5%;
+    box-shadow: 0px 2px 2px 2px #9E9E9E;
+    overflow-y: auto;
+}
+
+#quotation_suggestion_id::-webkit-scrollbar-thumb
+{
+	border-radius: 50%;
+	background-color: #9E9E9E;
+}
+#quotation_suggestion_id::-webkit-scrollbar {
+   width: 0.5em;
+   height: 0.5em;
+}
+
+
+.quotations_suggestions li:hover {
+    background: #8BC34A;
+}
+

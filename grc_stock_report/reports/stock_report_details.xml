@@ -1,0 +1,126 @@
+<odoo>
+
+	<record id="paperformat_landa4" model="report.paperformat">
+	    <field name="name">Landscape A4</field>
+	    <field name="default" eval="True"/>
+	    <field name="format">A4</field>
+	    <field name="orientation">Landscape</field>
+	    <field name="margin_top">40</field>
+	    <field name="margin_bottom">23</field>
+	    <field name="margin_left">7</field>
+	    <field name="margin_right">7</field>
+	    <field name="header_line" eval="False"/>
+	    <field name="header_spacing">30</field>
+	    <field name="dpi">90</field>
+	</record>
+
+
+	<record id="stock_report_details" model="ir.actions.report">
+		<field name="name">Stock report details</field>
+		 <field name="model">wizard.stock_report_wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">grc_stock_report.report_details</field>
+	</record>
+
+	<template id="report_details">
+	    <t t-call="web.html_container"> 
+            <t t-call="web.external_layout"> 
+                <div class="page">
+
+                	<style>
+                		table {
+						  border-collapse: collapse;
+						}
+						th,td {
+						  border: 1px solid #cecfd5;
+						  padding: 10px 15px;
+						}
+
+						.si_fi {
+							background-color: #95A5A6;
+						}
+
+						.alnright { text-align: right; }
+						.alncenter { text-align: center; }
+
+                	</style>
+
+                    <table width="80%" >
+                    	<tbody>
+                    		<tr>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;" colspan="2"><b>Warehouse</b></td>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;" colspan="2"><span t-esc="data['warehouse']"/></td>
+                    		</tr>
+                    		<tr>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;" colspan="2"><b>Location</b></td>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;" colspan="2"><span t-esc="data['location']"/></td>
+                    		</tr>
+                    		<tr>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;"><b>Date from</b></td>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;"><span t-esc="data['date_from']"/></td>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;"><b>Date to</b></td>
+                    			<td style="border-top: 0; border-right: 0; border-left: 0;"><span t-esc="data['date_to']"/></td>
+                    		</tr>
+                    	</tbody>
+                    </table>
+
+                    <br/><br/>
+
+                    <table width="100%">
+                    	<thead>
+                    		<tr>
+	                    		<td><b>Reference</b></td>
+	                    		<td><b>Designation</b></td>
+	                    		<td><b>UoM</b></td>
+	                    		<td><b>Move</b></td>
+	                    		<td><b>Date</b></td>
+	                    		<td><b>Initial stock</b></td>
+	                    		<td><b>In</b></td>
+	                    		<td><b>Out</b></td>
+	                    		<td><b>Balance</b></td>
+	                    		<td><b>Final Stock</b></td>
+	                    	</tr>
+                    	</thead>
+                    	<tbody>
+	                    	<t t-foreach="data['lines']" t-as="line">
+	                    		<tr>
+	                    			<td t-att-rowspan="len(line['lines']) + 2"><span t-esc="line['ref']"/></td>
+	                    			<td t-att-rowspan="len(line['lines']) + 2"><span t-esc="line['name']"/></td>
+	                    			<td t-att-rowspan="len(line['lines']) + 2"><span t-esc="line['uom']"/></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class="alnright si_fi" ><b><span t-esc="line['si']"/></b></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    		</tr>
+	                    		<t  t-foreach="line['lines']" t-as="sline">
+		                    		<tr>
+			                    		<td class='alncenter' ><span t-esc="sline['mv']"/></td>
+			                    		<td class='alncenter' ><span t-esc="sline['date']"/></td>
+			                    		<td class='alncenter' ><span style="color:white;">-</span></td>
+			                    		<td class='alnright' ><span t-esc="sline['in']"/></td>
+			                    		<td class='alnright' ><span t-esc="sline['out']"/></td>
+			                    		<td class='alnright' ><b><span t-esc="sline['bal']"/></b></td>
+			                    		<td class='alnright' ><span t-esc="sline['fi']"/></td>
+			                    	</tr>
+			                    </t>
+			                    <tr>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class='alncenter' ><span style="color:white;">-</span></td>
+	                    			<td class="alnright si_fi" ><b><span t-esc="line['fi']"/></b></td>
+	                    		</tr>
+	                    	</t>
+	                    </tbody>
+                    </table>
+                </div>
+            </t>
+	    </t>
+	</template>
+
+</odoo>

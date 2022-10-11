@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<templates xml:space="preserve">
+
+    <!-- Select waiter button widget -->
+    <t t-name="waiterButton">
+        <div class="control-button waiter_content">
+            <i class="fa fa-user" /> Select Waiter
+        </div>
+    </t>
+
+
+    <!-- Waiter screen widget -->
+    <t t-name="waiterScreenWidget">
+       <div class="clientlist-screen screen">
+            <div class="screen-content">
+            
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left '></i>
+                        Cancel
+                    </span>
+                    <span class='searchbox'>
+                        <input placeholder='Search Waiter' />
+                        <span class='search-clear'></span>
+                    </span>
+                    <span class='searchbox'></span>
+                    <span class='button next oe_hidden highlight'>
+                        Set Waiter
+                        <i class='fa fa-angle-double-right'></i>
+                    </span>
+                    <!-- <span class='button unset oe_hidden highlight'>
+                        Unset Waiter
+                        <i class='fa fa-angle-double-right'></i>
+                    </span> -->
+                </section>
+
+                <section class="full-content">
+                    <div class='window'>
+                        <section class='subwindow collapsed'>
+                            <div class='subwindow-container collapsed'>
+                                <div class='subwindow-container-fix client-details-contents'>
+                                </div>
+                            </div>
+                        </section>
+                        <section class='subwindow'>
+                            <div class='subwindow-container'>
+                                <div class='subwindow-container-fix touch-scrollable scrollable-y'>
+                                    <table class='client-list'>
+                                        <thead>
+                                            <tr>
+                                                <th>Waiter name</th>
+                                                <th>Address</th>
+                                                <th>Phone</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class='waiter-list-contents'></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+    <!-- waiter table rows screen widget -->
+   <t t-name="waiterLinesScreenWidget" >
+        <tr class='order-line gracias' t-att-data-id='waiter.id' style="cursor:pointer !important;">
+            <td><t t-esc='waiter.name' /></td>
+            <td></td>
+            <td><t t-esc='waiter.work_phone' /></td>
+        </tr>
+    </t>
+
+
+    <!-- Extend PosTicket -->
+    <t t-extend="OrderReceipt">
+       <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation='append'>
+           <t t-if='order.order_waiter'>
+                <div>Waiter : <t t-esc='order.order_waiter' /></div>
+            </t>
+       </t>
+   </t>
+
+
+
+</templates>

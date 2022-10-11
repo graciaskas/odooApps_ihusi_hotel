@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='utf-8'?>
+<templates xml:space="preserve">
+
+    <!-- Select folio button widget -->
+    <t t-name="folioButton">
+        <div class="control-button folio_content">
+            <i class="fa fa-bed" />  Room
+        </div>
+    </t>
+
+    <!-- folio screen widget -->
+    <t t-name="folioScreenWidget">
+       <div class="clientlist-screen screen">
+            <div class="screen-content">
+            
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left '></i>
+                        Cancel
+                    </span>
+                    <span class='searchbox'>
+                        <input placeholder='Search' />
+                        <span class='search-clear'></span>
+                    </span>
+                    <span class='searchbox'></span>
+                    <span class='button next oe_hidden highlight'>
+                        Set folio <i class='fa fa-angle-double-right'></i>
+                    </span>
+                </section>
+
+                <section class="full-content">
+                    <div class='window'>
+                        <section class='subwindow collapsed'>
+                            <div class='subwindow-container collapsed'>
+                                <div class='subwindow-container-fix client-details-contents'>
+                                </div>
+                            </div>
+                        </section>
+                        <section class='subwindow'>
+                            <div class='subwindow-container'>
+                                <div class='subwindow-container-fix touch-scrollable scrollable-y'>
+                                    <table class='client-list'>
+                                        <thead>
+                                            <tr>
+                                                <th>#Folio</th>
+                                                <th>#Reservation</th>
+                                                <th>Customer</th>
+                                                <th>Checkin</th>
+                                                <th>Checkout</th>
+                                                <th>#Room</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class='folio-list-contents'></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+    
+    <!-- folio table rows screen widget -->
+   <t t-name="folioLinesScreenWidget" >
+        <tr class='order-line gracias' t-att-data-id='folio.id' style="cursor:pointer !important;">
+            <td><t t-esc='folio.name' /></td>
+            <td><t t-esc='folio.reservation_id[1]' /></td>
+            <td><t t-esc='folio.partner_id[1]' /></td>
+            <td><t t-esc='folio.checkin_date' /></td>
+            <td><t t-esc='folio.checkout_date' /></td>
+            <td><t t-esc='folio.product_id' /></td>
+        </tr>
+    </t>
+
+
+
+    <!-- Extend PosTicket -->
+    <t t-extend="OrderReceipt">
+        <t t-jquery=".pos-receipt" t-operation='replace'>
+           <div class="pos-receipt">
+                <t t-if='receipt.company.logo'>
+                    <img class="pos-receipt-logo" t-att-src='receipt.company.logo' alt="Logo"/>
+                    <br/>
+                </t>
+                <t t-if='!receipt.company.logo'>
+                    <h2 class="pos-receipt-center-align">
+                        <t t-esc='receipt.company.name' />
+                    </h2>
+                    <br/>
+                </t>
+                <div class="pos-receipt-contact">
+                    <t t-if='receipt.company.contact_address'>
+                        <div><t t-esc='receipt.company.contact_address' /></div>
+                    </t>
+                    <t t-if='receipt.company.phone'>
+                        <div>Tel:<t t-esc='receipt.company.phone' /></div>
+                    </t>
+                    <t t-if='receipt.company.vat'>
+                        <div><t t-esc='receipt.company.vat_label'/>:<t t-esc='receipt.company.vat' /></div>
+                    </t>
+                    <t t-if='receipt.company.email'>
+                        <div><t t-esc='receipt.company.email' /></div>
+                    </t>
+                    <t t-if='receipt.company.website'>
+                        <div><t t-esc='receipt.company.website' /></div>
+                    </t>
+                    <t t-if='receipt.header_html'>
+                        <t t-raw='receipt.header_html' />
+                    </t>
+                    <t t-if='!receipt.header_html and receipt.header'>
+                        <div><t t-esc='receipt.header' /></div>
+                    </t>
+                    <t t-if='receipt.cashier'>
+                        <div class='cashier'>
+                            <div>--------------------------------</div>
+                            <div>Cashier : <t t-esc='receipt.cashier' /></div>
+                        </div>
+                    </t>
+                </div>
+                <br />
+                <!-- Orderlines -->
+                <div class='orderlines'>
+                        <table id="tableolines">
+                            <thead>
+                                <tr style="border-bottom:2px solid black;">
+                                    <th style="text-align:left;">Product</th>
+                                    <th style="text-align: center;">Qty</th>
+                                    <th style="text-align: center;">Price</th>
+                                    <th style="text-align:right;">Amount</th>
+                                </tr>
+                            </thead>
+                           <tbody>
+                                <tr t-foreach="receipt.orderlines" t-as="line" style="border-bottom: 1px solid black;">
+                                    <td>
+                                        <div style="padding-top: 5px;padding-bottom: 5px;">
+                                            <span t-esc='line.product_name_wrapped[0]'/>
+                                            <t t-if='line.discount !== 0'>
+                                                <h5 style="margin-top: 0%;margin-bottom: 0%;font-size: 12px;color: #848484;">
+                                                    <t t-esc='line.discount' />% Discount 
+                                                </h5>
+                                            </t>
+                                        </div>
+                                    </td>
+                                    <td style="text-align: center;"><span t-esc="line.quantity"/><span t-if='line.unit_name !== "Units"' t-esc='line.unit_name'/></td>
+                                    <td style="text-align: center;"><span t-esc="widget.format_currency_no_symbol(line.price)"/></td>
+                                    <td style="text-align:right;"><span t-esc='widget.format_currency_no_symbol(line.price_display)'/></td>
+                                </tr>
+                           </tbody>
+                        </table>
+                    </div>
+                <div>
+                <!-- Subtotal -->
+                <t t-set='taxincluded' t-value='Math.abs(receipt.subtotal - receipt.total_with_tax) &lt;= 0.000001' />
+                <t t-if='!taxincluded'>
+                    <br/> 
+                    <div style="font-weight: 700;text-align: right; font-size: 16px;border-top: 2px solid;margin-left: 30%; padding-top: 2%;">Subtotal : <span t-esc='widget.format_currency(receipt.subtotal)' class="pos-receipt-right-align"/></div>
+                    <t t-foreach='receipt.tax_details' t-as='tax'>
+                        <div style="font-weight: 700;text-align: right;">
+                            <t t-esc='tax.name' />
+                            <span t-esc='widget.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+                        </div>
+                    </t>
+                </t>
+                <!-- Total -->
+                <br/>
+                <div style="font-size: 16px;text-align: right;font-weight: 700; border-top: 2px solid;margin-left: 30%;padding-top: 2%;">
+                    TOTAL :
+                    <span t-esc='widget.format_currency(receipt.total_with_tax)'/>
+                </div>
+                <!-- Extra Payment Info -->
+                <t t-if='receipt.total_discount'>
+                    <div style="font-size: 14px;text-align: right;border-top: 1px solid;margin-left: 30%;padding-top: 2%;">
+                        Discounts
+                        <span t-esc='widget.format_currency(receipt.total_discount)'/>
+                    </div>
+                </t>
+                <br/>
+                <t t-if='taxincluded'>
+                    <t t-foreach='receipt.tax_details' t-as='tax'>
+                        <div style="font-size: 14px; text-align: right; font-weight: 700; border-top: 1px solid;margin-left: 30%;padding-top: 2%;">
+                            <t t-esc='tax.name' />
+                            <span t-esc='widget.format_currency_no_symbol(tax.amount)'/>
+                        </div>
+                    </t>
+                    <div style="font-size: 14px; text-align: right; font-weight: 700;">
+                        Total Taxes :
+                        <span t-esc='widget.format_currency(receipt.total_tax)'/>
+                    </div>
+                </t>
+                </div>
+                <br/>
+
+
+                <t t-foreach='paymentlines' t-as='line'>
+                    <div style="font-size: 14px;">
+                        <t t-esc='line.name' />
+                        <span t-esc='widget.format_currency_no_symbol(line.get_amount())' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+
+                <div class="receipt-change" style="font-size: 14px; border-top:1px dotted black;">
+                    CHANGE
+                    <span t-esc='widget.format_currency(receipt.change)' class="pos-receipt-right-align"/>
+                </div>
+
+            
+               
+                <div class='before-footer' />
+                <!-- Footer -->
+                <div t-if='receipt.footer_html'  class="pos-receipt-center-align" style="font-size: 14px;">
+                    <t t-raw='receipt.footer_html'/>
+                </div>
+                <div t-if='!receipt.footer_html and receipt.footer'  class="pos-receipt-center-align" style="font-size: 13px;">
+                    <br/>
+                    <t t-esc='receipt.footer'/>
+                    <br/>
+                </div>
+                 <div class="pos-receipt-order-data">
+                    <div><t t-esc='receipt.name' /></div>
+                    <div><t t-esc='receipt.date.localestring' /></div>
+                </div>
+                <div class='after-footer' style="font-size: 14px;">
+                    <t t-foreach='paymentlines' t-as='line'>
+                        <t t-if='line.ticket'>
+                            <br />
+                            <div class="pos-payment-terminal-receipt">
+                                <t t-raw='line.ticket'/>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </t>
+
+    <!-- Extend PosTicket -->
+    <t t-extend="OrderReceipt">
+       <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation='append'>
+           <t t-if='receipt.client'>
+               <div>Customer : <t t-esc='receipt.client'/></div>
+           </t>
+       </t>
+   </t>
+
+    <!-- Extend PosTicket -->
+    <t t-extend="OrderReceipt">
+        <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation='append'>
+            <t t-if='order.order_folio'>
+                <div>#Room : <t t-esc='order.order_folio.room' /></div>
+            </t>
+        </t>
+    </t>
+
+
+
+
+   
+
+</templates>

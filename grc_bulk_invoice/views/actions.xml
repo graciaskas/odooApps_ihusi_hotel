@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.server" id="bulk_invoice">
+        <field name="name">Resumé des factures</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="binding_model_id" ref="model_account_move"/>
+         <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.action_bulk_invoice()
+        </field>
+    </record>
+
+
+    <record model="ir.actions.server" id="bulk_invoice_nocons">
+        <field name="name">Resumé des factures sans lignes de facture</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="binding_model_id" ref="model_account_move"/>
+         <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.action_bulk_invoice('False')
+        </field>
+    </record>
+
+</odoo>

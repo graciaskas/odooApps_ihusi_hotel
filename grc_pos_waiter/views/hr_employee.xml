@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_employee_pos_waiter" model="ir.ui.view">
+        <field name="name">hr.employee.pos_waiter</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook>
+                <!-- <xpath expr="//page[@name='hr_settings']" position="after"> -->
+                    <page name="pos" string="PoS Waiter">
+                        <group>
+                            <group name="pos_waiter_group" string="PoS waiter">
+                                <field name="is_waiter" required="1"/>
+                            </group>
+                        </group>
+                    </page>
+                <!-- </xpath> -->
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

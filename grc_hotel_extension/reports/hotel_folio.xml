@@ -1,0 +1,37 @@
+<odoo>
+    <!--Report for hotel folio -->
+    
+
+    <record id="paperformat_lowmargin" model="report.paperformat">
+       <field name="name">European A4 landscape</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    
+
+    <report
+        id="report_folios"
+        string="Occupations"
+        model="hotel.folio"
+        report_type="qweb-pdf"
+        file="grc_hotel_extension.report_folio"
+        name="grc_hotel_extension.report_folio"
+        menu="False"
+        paperformat="grc_hotel_extension.paperformat_lowmargin"
+    />
+
+    <!-- <record id="grc_hotel_extension.report_folios" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="grc_hotel_extension.paperformat_lowmargin" />
+    </record> -->
+</odoo>

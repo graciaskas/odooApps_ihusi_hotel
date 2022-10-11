@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="account_invoice" name="account_invoice_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//t[@t-set='address']" position="replace">
+            <t t-set="address">
+                <strong>Client :</strong>
+                <address t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <div t-if="o.partner_id.vat" class="mt16">
+                    <t t-if="o.company_id.country_id.vat_label" t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label"/>
+                    <t t-else="">Tax ID</t>: <span t-field="o.partner_id.vat"/></div>
+            </t>
+        </xpath>
+        <xpath expr="//div[@class='page']" position="inside">
+            <table class="table table-condesed" style="border:1px solid white!important;">
+                <tr>
+                    <td  style="border:1px solid white !important;background-color:white;">
+                       
+                    </td>
+                    <td style="border:1px solid white !important;background-color:white;" colspan="1">
+                        <strong style="float:right;">Signature du client.</strong>
+                    </td>
+                </tr>
+            </table>
+        </xpath>
+    </template>
+
+</odoo>
