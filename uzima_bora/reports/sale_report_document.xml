@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="sale_report_inherit_template" name="report_sale" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']" position="inside">
+            <div  class="col-auto mw-100 mb-2">
+                <strong>Date de livraison:</strong>
+                <p class="m-0" t-field="doc.commitment_date"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//p[@id='fiscal_position_remark']" position="after">
+            <hr/>
+            <div class="row">
+                <div class="col-6">
+                    <h6><strong>Logisticien UZIMA BORA SARL</strong></h6>
+                    <p>Nom:.................................................................................</p>
+                    <p>Signature:...........................................................................</p>
+                    <p>Date:..................................................................................</p>
+                </div>
+                <div class="col-6">
+                    <h6><strong>Gérant</strong></h6>
+                    <p>Nom:.................................................................................</p>
+                    <p>Signature:...........................................................................</p>
+                    <p>Date:..................................................................................</p>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-6">
+                    <h6><strong>INITIATEUR</strong></h6>
+                    <p>Nom:.................................................................................</p>
+                    <p>Signature:...........................................................................</p>
+                    <p>Date:..................................................................................</p>
+                </div>
+                <div class="col-6">
+                    <h6><strong>Vendeur</strong></h6>
+                    <p>Nom:.................................................................................</p>
+                    <p>Signature:...........................................................................</p>
+                    <p>Date:..................................................................................</p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
